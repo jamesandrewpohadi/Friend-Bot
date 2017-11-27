@@ -40,7 +40,7 @@ def webhook():
     print("Request:")
     print(json.dumps(req, indent=4))
 
-    res = filterRequest(req)
+    res = processRequest(req)
 
     res = json.dumps(res, indent=4)
     # print(res)
@@ -48,10 +48,10 @@ def webhook():
     r.headers['Content-Type'] = 'application/json'
     return r
 
-def filterRequest(req):
-     if req.get("result").get("action") != "yahooWeatherForecast":
-        res = processRequest(req)
-     return res
+#def filterRequest(req):
+#     if req.get("result").get("action") != "yahooWeatherForecast":
+#        res = processRequest(req)
+#     return res
 
 
 def processRequest(req):
