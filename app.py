@@ -51,8 +51,6 @@ def webhook():
 def filterRequest(req):
      if req.get("result").get("action") != "yahooWeatherForecast":
         res = processRequest(req)
-     if req.get("result").get("action") != "github":
-        res = {"displayText":"yess github"}
      return res
 
 
