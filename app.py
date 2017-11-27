@@ -52,7 +52,9 @@ def filterRequest(req)
      if req.get("result").get("action") != "yahooWeatherForecast":
         res=processRequest(req)
      if if req.get("result").get("action") != "github":
-     return {"display text"="yess github"}
+     return {"displayText":"yess github"}
+
+
 def processRequest(req):
     if req.get("result").get("action") != "yahooWeatherForecast":
         return {}
