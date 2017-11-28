@@ -48,7 +48,7 @@ def webhook():
     r.headers['Content-Type'] = 'application/json'
     return r
 
-def filterRequest(re):
+def filterRequest(res):
     if req.get("result").get("action") != "yahooWeatherForecast":
         res = processRequest(req)
     if req.get("result").get("action") != "about":
