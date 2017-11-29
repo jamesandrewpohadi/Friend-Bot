@@ -94,7 +94,7 @@ def makeWebhookResultExchange(data):
     from_ = Realtime.get("1. From_Currency Code")
     to = Realtime.get("3. To_Currency Code")
     return {
-        "speech": "The exchange rate (" + from_ + " to " + to + "is " + Exchange_Rate,
+        "speech": "The exchange rate (" + from_ + " to " + to + ") is " + Exchange_Rate,
         "displayText": "The exchange rate is " + Exchange_Rate,
         # "data": data,
         # "contextOut": [],
