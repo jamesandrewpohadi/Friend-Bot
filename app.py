@@ -50,19 +50,24 @@ def webhook():
 
 def filterRequest(req):
     if req.get("result").get("action") == "yahooWeatherForecast":
-        r = processRequest(req)
+        r = processRequestWeather(req)
+    elif req.get("result").get("action") == "exchangeRate":
+        r = processRequestExchangeRate(req)
     else:
-        r = {
-            "speech": "Yesa",
-            "displayText": "yahoo",
-            # "data": data,
-            # "contextOut": [],
-            "source": "apiai-weather-webhook-sample"
-            }
+        r={}
     return r
 
+def processRequestExchangeRate(req)
+    result = req.get("result")
+    parameters = result.get("parameters")
+    from = parameters.get("From")
+    to = parameters.get("To")
+    datar = urlopen("https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=" + from + "&to_currency=" + to + "&apikey=6ORVWXEP5FRY0SZ7").read()
+    data = json.loads(result)
+    res = makeWebhookResultExchange(data)
+    return res
 
-def processRequest(req):
+def processRequestWeather(req):
     baseurl = "https://query.yahooapis.com/v1/public/yql?"
     yql_query = makeYqlQuery(req)
     if yql_query is None:
