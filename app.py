@@ -89,8 +89,8 @@ def makeYqlQuery(req):
     return "select * from weather.forecast where woeid in (select woeid from geo.places(1) where text='" + city + "')"
 
 def makeWebhookResultExchange(data):
-    Realtime = data.get('Realtime Currency Exchange Rate')
-    Exchange_Rate = Realtime.get('5. Exchange Rate')
+    Realtime = data.get("Realtime Currency Exchange Rate")
+    Exchange_Rate = Realtime.get("5. Exchange Rate")
     return {
         "speech": "The exchange rate is" + Exchange_Rate,
         "displayText": "The exchange rate is" + Exchange_Rate,
