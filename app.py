@@ -58,13 +58,13 @@ def filterRequest(req):
             "source": "apiai-weather-webhook-sample"
             }
     else:
-        r = {
-            "speech": "Yesa",
-            "displayText": "yahoo",
-            # "data": data,
-            # "contextOut": [],
-            "source": "apiai-weather-webhook-sample"
-            }
+#        r = {
+#            "speech": "Yesa",
+#            "displayText": "yahoo",
+#            # "data": data,
+#            # "contextOut": [],
+#            "source": "apiai-weather-webhook-sample"
+#            }
     return r
 
 
