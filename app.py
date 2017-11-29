@@ -50,13 +50,7 @@ def webhook():
 
 def filterRequest(req):
     if req.get("result").get("action") == "yahooWeatherForecast":
-        r = {
-            "speech": "Yesss",
-            "displayText": "yahoo",
-            # "data": data,
-            # "contextOut": [],
-            "source": "apiai-weather-webhook-sample"
-            }
+        r = processRequest(req)
     else:
         r = {
             "speech": "Yesa",
