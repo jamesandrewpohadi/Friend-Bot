@@ -57,7 +57,7 @@ def filterRequest(req):
         r={}
     return r
 
-def processRequestExchangeRate(req)
+def processRequestExchangeRate(req):
     result = req.get("result")
     parameters = result.get("parameters")
     from_ = parameters.get("From")
