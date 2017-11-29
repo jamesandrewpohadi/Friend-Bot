@@ -63,7 +63,7 @@ def processRequestExchangeRate(req)
     from_ = parameters.get("From")
     to = parameters.get("To")
     datar = urlopen("https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=" + from_ + "&to_currency=" + to + "&apikey=6ORVWXEP5FRY0SZ7").read()
-    data = json.loads(result)
+    data = json.loads(datar)
     res = makeWebhookResultExchange(data)
     return res
 
