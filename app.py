@@ -49,7 +49,7 @@ def webhook():
     return r
 
 def filterRequest(req):
-    if req.get("result").get("action") != "yahooWeatherForecast":
+    if req.get("result").get("action") == "yahooWeatherForecast":
         r = {
             "speech": "Yesss",
             "displayText": "yahoo",
