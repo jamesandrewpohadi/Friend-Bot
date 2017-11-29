@@ -53,7 +53,7 @@ def filterRequest(req):
         r = processRequest(req)
     else:
         r = {
-            "speech": "Yess",
+            "speech": "Yesa",
             "displayText": "yahoo",
             # "data": data,
             # "contextOut": [],
