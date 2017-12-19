@@ -50,7 +50,7 @@ def webhook():
 
 def filterRequest(req):
     if req.get("result").get("action") == "yahooWeatherForecast":
-        r = processRequestWeather(req)
+        r = processRequestWeatherApixu(req)
     elif req.get("result").get("action") == "exchangeRate":
         r = processRequestExchangeRate(req)
     else:
@@ -78,6 +78,12 @@ def processRequestWeather(req):
     res = makeWebhookResult(data)
     return res
 
+def processRequestWeatherApixu(req):
+    city = req.get("result").get("parameter").get("geo-city")
+    with urllib.request.urlopen("http://api.apixu.com/v1/current.json?key=b9a7898e06294d5d99603603172711&q=" + kota ) as url:
+        data = json.loads(url.read().decode())
+    res = makeWebhookResultWeatherApixu(data)
+    return res
 
 def makeYqlQuery(req):
     result = req.get("result")
@@ -95,6 +101,19 @@ def makeWebhookResultExchange(data):
     to = Realtime.get("3. To_Currency Code")
     return {
         "speech": "The exchange rate (" + from_ + " to " + to + ") is " + Exchange_Rate,
+        "displayText": "The exchange rate is " + Exchange_Rate,
+        # "data": data,
+        # "contextOut": [],
+        "source": "apiai-weather-webhook-sample"
+    }
+
+def makeWebhookResultWeatherApixu(data):
+    city = data.get('location').get('name')
+    condition = data.get('current').get('condition').get('text')
+    temperature = data.get('current').get('temp_c')
+    feelslike_c = data.get('current').get('feelslike_c')
+    return {
+        "speech": "The current weather in " + city + " is " + condition + " and the temperature is " + str(temperature) + " C (feels like " + str(feelslike_c) + " C)",
         "displayText": "The exchange rate is " + Exchange_Rate,
         # "data": data,
         # "contextOut": [],
