@@ -15,7 +15,6 @@
 # limitations under the License.
 
 from __future__ import print_function
-import urllib.request, json
 from future.standard_library import install_aliases
 install_aliases()
 
@@ -80,9 +79,9 @@ def processRequestWeather(req):
     return res
 
 def processRequestWeatherApixu(req):
-    city = req.get("result").get("parameter").get("geo-city")
-    with urllib.request.urlopen("http://api.apixu.com/v1/current.json?key=b9a7898e06294d5d99603603172711&q=" + city ) as url:
-        data = json.loads(url.read().decode())
+    city = req.get("result").get("parameters").get("geo-city")
+    datas = urlopen("http://api.apixu.com/v1/current.json?key=b9a7898e06294d5d99603603172711&q=" + city )
+    data = json.loads(datas)
     res = makeWebhookResultWeatherApixu(data)
     return res
 
@@ -115,7 +114,7 @@ def makeWebhookResultWeatherApixu(data):
     feelslike_c = data.get('current').get('feelslike_c')
     return {
         "speech": "The current weather in " + city + " is " + condition + " and the temperature is " + str(temperature) + " C (feels like " + str(feelslike_c) + " C)",
-        "displayText": "The exchange rate is " + Exchange_Rate,
+        "displayText": "The current weather in " + city + " is " + condition + " and the temperature is " + str(temperature) + " C (feels like " + str(feelslike_c) + " C)",
         # "data": data,
         # "contextOut": [],
         "source": "apiai-weather-webhook-sample"
