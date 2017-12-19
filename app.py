@@ -80,7 +80,7 @@ def processRequestWeather(req):
 
 def processRequestWeatherApixu(req):
     city = req.get("result").get("parameters").get("geo-city")
-    datas = urlopen("http://api.apixu.com/v1/current.json?key=b9a7898e06294d5d99603603172711&q=" + city )
+    datas = urlopen("http://api.apixu.com/v1/current.json?key=b9a7898e06294d5d99603603172711&q=" + city ).read()
     data = json.loads(datas)
     res = makeWebhookResultWeatherApixu(data)
     return res
