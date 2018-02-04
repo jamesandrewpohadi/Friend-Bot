@@ -63,13 +63,6 @@ def processP_Check(req):
     n = req.get("result").get("parameters").get("number")
     a = int(n**1/2)
     i = 2
-    return {
-        "speech": "text",
-        "displayText": "The exchange rate is ",
-        # "data": data,
-        # "contextOut": [],
-        "source": "apiai-weather-webhook-sample"
-    }
     while i<=a:
         if n % i == 0:
             text = str(n) + " is not a prime number!"
