@@ -65,9 +65,9 @@ def processP_Check(req):
     i = 2
     if n == 3:
         return {
-                "speech": "3 is a prime number!"
-                "displayText": "The exchange rate is ",
-                "source": "apiai-weather-webhook-sample"
+            "speech": "3 is a prime number!"
+            "displayText": "The exchange rate is ",
+            "source": "apiai-weather-webhook-sample"
         }
     while i<=a:
         if n % i == 0:
