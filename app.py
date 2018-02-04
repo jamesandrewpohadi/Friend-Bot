@@ -53,9 +53,28 @@ def filterRequest(req):
         r = processRequestWeatherApixu(req)
     elif req.get("result").get("action") == "exchangeRate":
         r = processRequestExchangeRate(req)
+    elif req.get("result").get("action") == "checkPrime":
+        r = processP_Check(req)
     else:
         r={}
     return r
+
+def processP_Check(req):
+    n = res.get("result").get("parameters").get("number")
+    a = int(n**1/2)
+    i = 2
+    while i<=a:
+        if n % i == 0:
+            text = str(n) + " is not a prime number!"
+            return {
+                "speech": text
+            }
+        i = i + 1
+        if i > a:
+            text = str(n) + " is a prime number!"
+            return {
+                "speech": text
+            }
 
 def processRequestExchangeRate(req):
     result = req.get("result")
