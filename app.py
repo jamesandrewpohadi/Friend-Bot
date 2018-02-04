@@ -60,7 +60,7 @@ def filterRequest(req):
     return r
 
 def processP_Check(req):
-    n = res.get("result").get("parameters").get("number")
+    n = req.get("result").get("parameters").get("number")
     a = int(n**1/2)
     i = 2
     while i<=a:
