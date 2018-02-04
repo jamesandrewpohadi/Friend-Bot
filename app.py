@@ -64,8 +64,8 @@ def processP_Check(req):
     a = int(n**1/2)
     i = 2
     return {
-        "speech": "text"
-        "displayText": "The exchange rate is " + Exchange_Rate,
+        "speech": "text",
+        "displayText": "The exchange rate is ",
         # "data": data,
         # "contextOut": [],
         "source": "apiai-weather-webhook-sample"
