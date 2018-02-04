@@ -62,7 +62,7 @@ def filterRequest(req):
 def processP_Check(req):
     n = req.get("result").get("parameters").get("number")
     a = int(n**1/2)
-    i = 2
+    i = 1
     while i<=a:
         if n % i == 0:
             text = str(n) + " is not a prime number!"
