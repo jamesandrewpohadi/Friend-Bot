@@ -63,17 +63,18 @@ def filterRequest(req):
 def processP_Check(req):
     n = int(req.get("result").get("parameters").get("number"))
     r = int(n**(1/2))
+    id = req.get("originalRequest").get("data").get("user").get("userId")
     if n < 2:
         return {
-            "speech": str(n) + " is not a prime number!"
+            "speech": str(n) + " is not a prime number!" + str(id)
         }
     for i in range(2,r+1):
         if n % i == 0:
             return {
-                "speech": str(n) + " is not a prime number!"
+                "speech": str(n) + " is not a prime number!" + str(id)
             }
     return {
-        "speech": str(n) + " is not a prime number!"
+        "speech": str(n) + " is not a prime number!" + str(id)
     }
 
 def processRequestExchangeRate(req):
