@@ -62,30 +62,19 @@ def filterRequest(req):
 
 def processP_Check(req):
     n = int(req.get("result").get("parameters").get("number"))
-    a = int(n**1/2)
-    i = 2
-    if n == 3:
+    r = int(n**(1/2))
+    if n < 2:
         return {
-            "speech": "3 is a prime number!"
-            #"displayText": "The exchange rate is ",
-            #"source": "apiai-weather-webhook-sample"
+            "speech": str(n) + " is not a prime number!"
         }
-    while i<=a:
+    for i in range(2,r+1):
         if n % i == 0:
-            text = str(n) + " is not a prime number!"
             return {
-                "speech": text
-                #"displayText": "The exchange rate is ",
-                #"source": "apiai-weather-webhook-sample"
+                "speech": str(n) + " is not a prime number!"
             }
-        i = i + 1
-        if i > a:
-            text = str(n) + " is a prime number!"
-            return {
-                "speech": text
-                #"displayText": "The exchange rate is ",
-                #"source": "apiai-weather-webhook-sample"
-            }
+    return {
+        "speech": str(n) + " is not a prime number!"
+    }
 
 def processRequestExchangeRate(req):
     result = req.get("result")
