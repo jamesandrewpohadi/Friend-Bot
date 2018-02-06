@@ -14,11 +14,11 @@ def euler(req):
 
 def mod(req):
     a = int(req.get("result").get("parameters").get("number"))
-	b = int(req.get("result").get("parameters").get("number1"))
-	res = a%b
-	return {
-		"speech": str(a) + " mod " + str(b) + " = " + str(res)
-	}
+    b = int(req.get("result").get("parameters").get("number1"))
+    res = a%b
+    return {
+	    "speech": str(a) + " mod " + str(b) + " = " + str(res)
+    }
 
 def processP_Check(req):
     n = int(req.get("result").get("parameters").get("number"))
