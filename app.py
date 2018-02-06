@@ -56,6 +56,10 @@ def filterRequest(req):
         r = processRequestExchangeRate(req)
     elif req.get("result").get("action") == "checkPrime":
         r = processP_Check(req)
+    elif req.get("result").get("action") == "askMod":
+        r = mod(req)
+    elif req.get("result").get("action") == "askEuler":
+        r = euler(req)
     else:
         r={}
     return r
