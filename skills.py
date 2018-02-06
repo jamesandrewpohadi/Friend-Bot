@@ -7,9 +7,9 @@ def euler(req):
                 x = x + 1
                 break
     res = n-x-1
-	return {
-		"speech": "euler({}) = {}".format(n,res)
-	}
+    return {
+        "speech": "euler({}) = {}".format(n,res)
+    }
 
 
 def mod(req):
@@ -17,7 +17,7 @@ def mod(req):
     b = int(req.get("result").get("parameters").get("number1"))
     res = a%b
     return {
-	    "speech": str(a) + " mod " + str(b) + " = " + str(res)
+        "speech": str(a) + " mod " + str(b) + " = " + str(res)
     }
 
 def processP_Check(req):
