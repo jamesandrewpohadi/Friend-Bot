@@ -2,7 +2,7 @@ def euler(req):
     n = int(req.get("result").get("parameters").get("number"))
     x = 0
     for i in range(1,n):
-        for b in range(2,i+1):
+        for b in range(2,i+1:
             if i%b == n%b == 0:
                 x = x + 1
                 break
