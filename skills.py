@@ -8,7 +8,7 @@ def euler(req):
                 break
     res = n-x-1
     return {
-        "speech": "euler({}) = {}".format(n,res)
+        "speech": "euler(" + str(n) + ") = " + str(res)
     }
 
 
