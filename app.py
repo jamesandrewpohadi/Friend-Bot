@@ -47,8 +47,7 @@ def webhook():
     # print(res)
     r = make_response(res)
     r.headers['Content-Type'] = 'application/json'
-    a = input(r)
-    return a
+    return r
 
 def filterRequest(req):
     if req.get("result").get("action") == "yahooWeatherForecast":
@@ -64,18 +63,17 @@ def filterRequest(req):
 def processP_Check(req):
     n = int(req.get("result").get("parameters").get("number"))
     r = int(n**(1/2))
-    id = req.get("originalRequest").get("data").get("user").get("userId")
     if n < 2:
         return {
-            "speech": str(n) + " is not a prime number!" + str(id)
+            "speech": str(n) + " is not a prime number!" 
         }
     for i in range(2,r+1):
         if n % i == 0:
             return {
-                "speech": str(n) + " is not a prime number!" + str(id)
+                "speech": str(n) + " is not a prime number!"
             }
     return {
-        "speech": str(n) + " is not a prime number!" + str(id)
+        "speech": str(n) + " is not a prime number!"
     }
 
 def processRequestExchangeRate(req):
