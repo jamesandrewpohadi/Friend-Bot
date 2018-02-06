@@ -73,7 +73,7 @@ def processP_Check(req):
                 "speech": str(n) + " is not a prime number!"
             }
     return {
-        "speech": str(n) + " is not a prime number!"
+        "speech": str(n) + " is a prime number!"
     }
 
 def processRequestExchangeRate(req):
