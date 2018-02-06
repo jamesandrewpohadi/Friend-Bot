@@ -47,7 +47,8 @@ def webhook():
     # print(res)
     r = make_response(res)
     r.headers['Content-Type'] = 'application/json'
-    return r
+    a = input(r)
+    return a
 
 def filterRequest(req):
     if req.get("result").get("action") == "yahooWeatherForecast":
