@@ -1,5 +1,5 @@
 def euler(req):
-	n = int(req.get("result").get("parameters").get("number"))
+    n = int(req.get("result").get("parameters").get("number"))
     x = 0
     for i in range(1,n):
         for b in range(2,i+1):
@@ -13,7 +13,7 @@ def euler(req):
 
 
 def mod(req):
-	a = int(req.get("result").get("parameters").get("number"))
+    a = int(req.get("result").get("parameters").get("number"))
 	b = int(req.get("result").get("parameters").get("number1"))
 	res = a%b
 	return {
