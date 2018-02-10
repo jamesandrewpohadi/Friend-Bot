@@ -33,16 +33,6 @@ from flask import make_response
 # Flask app should start in global layout
 app = Flask(__name__)
 
-ACCESS_TOKEN = 'EAAcgqHE2q6EBAEj2ofxkeQCxCNxXZBGrxVxHBFo9ZAjPWqW95hEb7bISYSitNnSeFYNNKEkyXcf9RtS5gZC5Dt9zE3kgB6M6rZChgOcKJRBQJLDlPgrodvZCGWClZBXL3rRr6SgczwT6eoqSnRWn7H4wVsgGVJFD8O03dHnLDmPJBlqwjQQ9EC'
-
-def reply(user_id, msg):
-    data = {
-        "recipient": {"id": user_id},
-        "message": {"text": msg}
-    }
-    resp = requests.post("https://graph.facebook.com/v2.6/me/messages?access_token=" + ACCESS_TOKEN, json=req)
-    print(resp.content)
-    
 @app.route('/webhook', methods=['POST','GET'])
 def webhook():
     req = request.get_json(silent=True, force=True)
@@ -56,10 +46,6 @@ def webhook():
     # print(res)
     r = make_response(res)
     r.headers['Content-Type'] = 'application/json'
-    
-    sender = data['entry'][0]['messaging'][0]['sender']['id']
-    message = data['entry'][0]['messaging'][0]['message']['text']
-    reply(sender, r)
     
     return r
     #return request.args['hub.challenge']
