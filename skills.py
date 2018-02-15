@@ -21,11 +21,12 @@ def mod(req):
     }
 
 def processP_Check(req):
+    a = req.get("originalRequest").get("data").get("sender").get("id")
     n = int(req.get("result").get("parameters").get("number"))
     r = int(n**(1/2))
     if n < 2:
         return {
-            "speech": str(n) + " is not a prime number!" 
+            "speech": str(n) + " is not a prime number!" + str(a)
         }
     for i in range(2,r+1):
         if n % i == 0:
