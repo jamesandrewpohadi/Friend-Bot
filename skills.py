@@ -21,7 +21,7 @@ def mod(req):
     }
 
 def processP_Check(req):
-    a = req.get("originalRequest").get("data").get("sender").get("id")
+    #a = req.get("originalRequest").get("data").get("sender").get("id")
     n = int(req.get("result").get("parameters").get("number"))
     r = int(n**(1/2))
     if n < 2:
