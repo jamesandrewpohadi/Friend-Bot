@@ -1,4 +1,4 @@
-# Hello World
+# Friend Bot
 
 Description:bot
 
